@@ -1,6 +1,6 @@
 # Alzheimers x AI
 
-In this project, a 3DCNN was used to classify videos of blood flowing in the brain of mice. There are two files: datapreprocessing and the model. 
+In this project, a Keras built 3DCNN was used to classify videos of blood flowing in the brain of mice. There are two files: datapreprocessing and the model. 
 Preprocessing includes setting a frame limit, cropping the image, and removing the red circle.
 The model attained a 70% training accuracy by utilizing a 3DCNN. 
 The classified videos are used to help Alzheimer's researchers to find a cure for the disease.
