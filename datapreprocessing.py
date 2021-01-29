@@ -13,6 +13,7 @@ for f in vids:
     name = vids[count]
     cap = cv2.VideoCapture(src + name)
     
+    #set start frame as beginning of the middle set of frames
     framecount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     dist = framecount-26     
     sframe = dist/2
@@ -20,7 +21,7 @@ for f in vids:
     
     framect = 0;
 
-    # 24-36 credit to: moshel
+    # 34-45 credit to: moshel
     while(cap.isOpened()):
         ret, frame = cap.read()
         img = frame
@@ -28,6 +29,8 @@ for f in vids:
             ret = False
         if ret == False:
             break  
+        
+        #thresholding for red circle and cropping to it
         th = cv2.inRange(img, (7, 13, 104), (98, 143, 255))                                                                                                                
         points = np.where(th>0)                                                                                                                                              
         p2 = zip(points[0], points[1])                                                                                                                                       
@@ -42,6 +45,7 @@ for f in vids:
         roi = img[y:y+height, x:x+width]
         
         # 45-57 credit to: https://gist.github.com/jdhao
+        #resizing the images with padding
         desired_size = 48
         im = roi
         old_size = im.shape[:2]
